@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('api/movies', [MoviesController::class, 'getMovies']);
+
+
+Route::get('api/viewAddMovie', [MoviesController::class, 'viewAddMovie']);
+Route::post('api/addMovie', [MoviesController::class, 'addMovie']);
