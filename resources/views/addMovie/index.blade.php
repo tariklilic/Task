@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="year" class="form-label ">Year</label>
-                                        <input type="text" class="form-control" id="year" name="year"
+                                        <input type="number" class="form-control" id="year" name="year"
                                             placeholder="Enter year" value="{{ old('year')}}">
                                         <span style="color:red">@error('year'){{ $message }} @enderror</span>
                                     </div>

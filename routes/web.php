@@ -18,8 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//pages
+Route::get('/addmovie', [MoviesController::class, 'viewAddMovie']);
+
+//movie endpoints
 Route::get('api/movies', [MoviesController::class, 'getMovies']);
-
-
-Route::get('api/viewAddMovie', [MoviesController::class, 'viewAddMovie']);
 Route::post('api/addMovie', [MoviesController::class, 'addMovie']);
+Route::get('api/movie/{id}', [MoviesController::class, 'getMovieById']);
+Route::get('api/movieByName', [MoviesController::class, 'getMovieBySearchParam']);
