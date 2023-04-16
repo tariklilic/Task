@@ -7,38 +7,57 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Movies;
+use Illuminate\Support\Str;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public $timestamps = false;
+
     protected $fillable = [
-        'name',
+        'username',
         'email',
+        'slug',
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getJWTCustomClaims()
+    {
+        return ['id'=> $this->id,
+        'username'=> $this->username,
+        'slug'=> $this->slug,
+        'email'=> $this->email
+        ];
+    }
+
+    public function movies(){
+        return $this->belongsToMany(Movies::class);
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::updating(function ($user) {
+        $user->slug = Str::slug($user->username);
+    });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

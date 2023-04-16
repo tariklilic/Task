@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +14,9 @@ use App\Http\Controllers\MoviesController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+    
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//pages
-Route::get('/addmovie', [MoviesController::class, 'viewAddMovie']);
-
-//movie endpoints
-Route::get('api/movies', [MoviesController::class, 'getMovies']);
-Route::post('api/addMovie', [MoviesController::class, 'addMovie']);
-Route::get('api/movie/{id}', [MoviesController::class, 'getMovieById']);
-Route::get('api/movieByName', [MoviesController::class, 'getMovieBySearchParam']);

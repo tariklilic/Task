@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Str;
+use App\Models\Movies;
+use File;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +17,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Movies::truncate();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $json = File::get('database/moviesData/movies.json');
+        $movies = json_decode($json);
+
+        foreach ($movies as $key => $value){
+            Movies::create([
+                "title" => $value->title,
+                "year" => $value->year,
+                "slug" => $value->title,
+                "imdbID" => $value->imdbID,
+                "type" => $value->type,
+                "poster" => $value->poster
+            ]);
+        }
     }
 }

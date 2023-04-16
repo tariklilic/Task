@@ -2,6 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
+use App\Models\Movies;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +22,29 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware'=>'api', 'prefix'=>'auth'], function($router){
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+});
+
+
+Route::middleware('auth.token')->group(function () {
+    //movie endpoints
+    Route::post('/addMovie', [MoviesController::class, 'addMovie']);
+    Route::get('/movie/{id}', [MoviesController::class, 'getMovieById']);
+    Route::get('/searchMovie', [MoviesController::class, 'searchMovie']);
+
+    Route::post('/followMovie', [UserController::class, 'followMovie']);
+    Route::get('/getUserMovies', [UserController::class, 'getUserMovies']);
+    Route::get('/user/{id}', [UserController::class, 'getUserById']);
+
+    //movie and user slugs routes
+    Route::get('user/slug/{user:slug}', function (User $user) {
+        return $user;
+    });
+    Route::get('movie/slug/{movie:slug}', function (Movies $movie) {
+        return $movie;
+    });
 });
