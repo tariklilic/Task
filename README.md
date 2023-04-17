@@ -26,9 +26,9 @@ php artisan jwt:secret
 Next, you will need to run migrations in exact order
 
 ```sh
-php artisan migrate --path=/database/migrations/2023_04_14_155018_create_movies_table.php \n
-php artisan migrate --path=/database/migrations/2023_04_15_184136_create_users_table.php \n
-php artisan db:seed \n
+php artisan migrate --path=/database/migrations/2023_04_14_155018_create_movies_table.php 
+php artisan migrate --path=/database/migrations/2023_04_15_184136_create_users_table.php 
+php artisan db:seed 
 ```
 
 After that you will need to run migrations for other tables
