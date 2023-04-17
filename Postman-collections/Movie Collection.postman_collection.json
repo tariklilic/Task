@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "c4e0ff91-d3b3-4c11-9d47-b95ef55b5797",
+		"name": "Movie Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/addMovie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Titanic\",\r\n    \"year\":\"1997\",\r\n    \"imdbID\":\"tt0802442\",\r\n    \"type\":\"movie\",\r\n    \"poster\":\"https://m.media-amazon.com/images/I/610Jiy1CKtL._AC_UY218_.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/addMovie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addMovie"
+					]
+				},
+				"description": "API POST Request to add a new movie.\r\nIncludes title, year, imdbID, type and poster in raw-json data;\r\nMust include login bearer token in authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/movie/86",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/movie/86",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"movie",
+						"86"
+					]
+				},
+				"description": "Get request to get a movie from the database;\r\nNeeds bearer token in authorization and ID in route;"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/searchMovie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchParam\": \"fast\",\r\n    \"pageSize\":\"10\",\r\n    \"type\":\"1\",\r\n    \"yearFrom\":\"2010\",\r\n    \"yearTo\":\"2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/searchMovie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"searchMovie"
+					]
+				},
+				"description": "Get request to serach for a movie;\r\nNeeds bearer token in authorization header;\r\nIn raw-json data needs: searchParam, pageSize, type(1-3), yearFrom and yearTo"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

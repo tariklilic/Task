@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "5750b140-08e7-4ff6-a085-c8b9200a32f7",
+		"name": "User Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/followMovie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"movieId\": \"86\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/followMovie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"followMovie"
+					]
+				},
+				"description": "POST request to follow a movie;\r\nNeeds bearer token and movieId in raw-json data"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/getUserMovies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pageSize\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/getUserMovies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"getUserMovies"
+					]
+				},
+				"description": "GET request to get all movies that user follows;\r\nNeeds bearer token in authorization;\r\nNeeds pageSize in raw-json data for pagination "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/user/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				},
+				"description": "GET request to get user data;\r\nNeeds bearer token in authorization and id in route"
+			},
+			"response": []
+		}
+	]
+}

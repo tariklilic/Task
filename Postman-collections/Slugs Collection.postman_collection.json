@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "17949910-ff1e-40f8-9843-5fbd9f5efb18",
+		"name": "Slugs Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/movie/slug/Home",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/movie/slug/Home",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"movie",
+						"slug",
+						"Home"
+					]
+				},
+				"description": "GET request that takes slug parameter in title;\r\nNeeds authorization header"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/user/slug/test1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/user/slug/test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"slug",
+						"test1"
+					]
+				},
+				"description": "SLUG GET request user slug parameter in route;\r\nNeeds authorization header bearer token;\r\n"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

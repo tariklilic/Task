@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "cdbb04d6-d752-4737-b311-b5e00b1fc3ee",
+		"name": "Auth Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Test1",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Test1",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				},
+				"description": "Api POST request for register;\r\nIn form data insert:\r\nusername, email and password"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/auth/login?email=test@gmail.com&password=Test1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/auth/login?email=test@gmail.com&password=Test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "Test1"
+						}
+					]
+				},
+				"description": "Auth API POST request for login;\r\nIn formdata insert email and password;"
+			},
+			"response": []
+		}
+	]
+}
