@@ -14,29 +14,30 @@ class Movies extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'title', 'year', 'imdbID', 'type', 'poster'
+        'title',
+        'year',
+        'imdbID', 
+        'type', 
+        'poster'
     ];
 
     public function movies(){
         return $this->belongsToMany(User::class);
     }
 
-    public function setSlugAttribute($value)
-    {
+    public function setSlugAttribute($value){
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public static function boot()
-    {
+    public static function boot(){
         parent::boot();
 
         static::updating(function ($movie) {
         $movie->slug = Str::slug($movie->title);
-    });
+        });
     }
 
-    public function getRouteKeyName()
-    {
+    public function getRouteKeyName(){
         return 'slug';
     }
 }

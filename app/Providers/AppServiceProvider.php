@@ -20,8 +20,8 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
+    public function boot(): void{
+
         User::creating(function ($user) {
             $user->slug = Str::slug($user->username);
         });
@@ -29,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
         Movies::creating(function ($movie) {
             $movie->slug = Str::slug($movie->title);
         });
+        
     }
 }

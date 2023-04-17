@@ -119,6 +119,68 @@
 				"description": "GET request to get user data;\r\nNeeds bearer token in authorization and id in route"
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3MzkwODYsImV4cCI6MTY4MTc0MjY4NiwibmJmIjoxNjgxNzM5MDg2LCJqdGkiOiJzd2FVQUtpNlNGRDJOak1rIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.FnppcWNpb9vWMVCL1CExKxb0ONBevad7BH8LHtXBnws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile"
+					]
+				},
+				"description": "GET Request to return user data without password parameter;\r\nTakes user data from the token, need authorization bearer token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODE3NDIwOTUsImV4cCI6MTY4MTc0NTY5NSwibmJmIjoxNjgxNzQyMDk1LCJqdGkiOiJtNVRMZWZTbVNKNkN5T2FYIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MywidXNlcm5hbWUiOiJUZXN0MSIsInNsdWciOiJ0ZXN0MSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20ifQ.GAZBpq0VRDpbzi76J0TQEtuGcg_Tyt8wpNigeLBRNcg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				},
+				"description": "GET Request to logout user;\r\nClears user token; \r\nNeeds authorization bearer token"
+			},
+			"response": []
 		}
 	]
 }

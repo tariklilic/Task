@@ -66,4 +66,24 @@ class UserController extends Controller
 
         return response()->json($user, 200);
     }
+
+    //get user profile wihout password
+    public function profile(Request $request){
+        $user = auth()->user();
+        $user->makeHidden('password');
+
+        $response = response()->json($user);
+        return $response;
+    }
+
+        //function to logout user
+    public function logout(){
+        auth()->logout();
+
+        $response = response()->json([
+            'message'=>'User logged out'
+        ]);
+        
+        return $response;
+    }
 }

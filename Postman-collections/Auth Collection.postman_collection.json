@@ -75,7 +75,7 @@
 						}
 					]
 				},
-				"description": "Auth API POST request for login;\r\nIn formdata insert email and password;"
+				"description": "Auth API POST request for login;\r\nIn form data insert email and password;"
 			},
 			"response": []
 		}

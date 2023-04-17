@@ -10,10 +10,12 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
+    //constructor
     public function _construct(){
         $this->middleware('auth:api', ['except'=>['login', 'register']]);
     }
 
+    //function to register a new user
     public function register(Request $request, User $user){
         $validator = Validator::make($request->all(), [
             'username'=>'required',
@@ -35,9 +37,11 @@ class AuthController extends Controller
             'message'=>'User successfully registered',
             'user'=>$user 
         ], 200);
+
         return $response;
     }
 
+    //function for user login
     public function login(Request $request){
         $validator = Validator::make($request->all(), [
             'email'=>'required|email',
@@ -53,6 +57,7 @@ class AuthController extends Controller
             $response = response()->json([
                 'error'=>'Unauthorized',
                 ], 401);
+
             return $response;
         }
 
@@ -60,6 +65,7 @@ class AuthController extends Controller
         return $newToken;
     }
 
+    //function to create new token
     public function createNewToken($token){
         $newToken = response()->json([
             'access_token'=>$token,
@@ -68,20 +74,5 @@ class AuthController extends Controller
         ]);
         
         return $newToken;
-    }
-
-    public function profile(Request $request){
-        $user = auth()->user();
-        $user->makeHidden('password');
-        $response = response()->json($user);
-        return $response;
-    }
-
-    public function logout(){
-        auth()->logout();
-        $response = response()->json([
-            'message'=>'User logged out'
-        ]);
-        return $response;
     }
 }

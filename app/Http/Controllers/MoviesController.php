@@ -12,8 +12,10 @@ use Validator;
 
 class MoviesController extends Controller
 {
+    //function to search for a movie
     public function searchMovie(Request $request){
         $input = $request->all();
+
         $searchParam = $input['searchParam'];
         $pageSize = $input['pageSize'];
         $type = $input['type'];
@@ -37,7 +39,7 @@ class MoviesController extends Controller
                 $match['type'] = 'game';
                 break;
             default:
-            return response()->json(['message' => 'Type must be between 1 and 3'], 400);
+                return response()->json(['message' => 'Type must be between 1 and 3'], 400);
                 break;
         }
 
@@ -54,9 +56,11 @@ class MoviesController extends Controller
         }
 
         $movies = Movies::where($match)->paginate($pageSize);
+
         return $movies;
     }
     
+    //function to add a new movie
     public function addMovie(Request $request, Movies $movie){
         $validator = Validator::make($request->all(), [
             'title'=>'required',
@@ -73,6 +77,7 @@ class MoviesController extends Controller
 
         $input = $request->all();
         $existingTitle = Movies::where('title', '=', $input['title'])->first();
+        
         if($existingTitle){
             return response()->json(['message' => 'That movie already exists'], 404);
         }

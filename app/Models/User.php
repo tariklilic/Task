@@ -24,13 +24,11 @@ class User extends Authenticatable implements JWTSubject
         'password',
     ];
 
-    public function getJWTIdentifier()
-    {
+    public function getJWTIdentifier(){
         return $this->getKey();
     }
 
-    public function getJWTCustomClaims()
-    {
+    public function getJWTCustomClaims(){
         return ['id'=> $this->id,
         'username'=> $this->username,
         'slug'=> $this->slug,
@@ -47,13 +45,12 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public static function boot()
-    {
+    public static function boot(){
         parent::boot();
 
         static::updating(function ($user) {
         $user->slug = Str::slug($user->username);
-    });
+        });
     }
 
     public function getRouteKeyName()

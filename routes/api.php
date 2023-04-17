@@ -36,11 +36,14 @@ Route::middleware('auth.token')->group(function () {
     Route::get('/movie/{id}', [MoviesController::class, 'getMovieById']);
     Route::get('/searchMovie', [MoviesController::class, 'searchMovie']);
 
+    //user endpoints
     Route::post('/followMovie', [UserController::class, 'followMovie']);
     Route::get('/getUserMovies', [UserController::class, 'getUserMovies']);
     Route::get('/user/{id}', [UserController::class, 'getUserById']);
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::get('/logout', [UserController::class, 'logout']);
 
-    //movie and user slugs routes
+    //movie and user slug endpoints
     Route::get('user/slug/{user:slug}', function (User $user) {
         return $user;
     });
